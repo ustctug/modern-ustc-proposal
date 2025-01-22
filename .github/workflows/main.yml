@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: typst-community/setup-typst@v3
       - uses: actions/checkout@v4
         with:
           repository: chengda/popular-fonts
@@ -24,15 +25,24 @@ jobs:
         with:
           repository: StellarCN/scp_zh
           path: fonts/scp_zh
-      - uses: typst-community/setup-typst@v3
+      - uses: actions/checkout@v4
+        with:
+          repository: siaimes/pytorch
+          path: fonts/pytorch
+      - uses: actions/checkout@v4
+        with:
+          repository: Kangzhengwei/androidFront
+          path: fonts/androidFront
       - run: |
+          sudo apt-get -y update
+          sudo apt-get -y install fonts-font-awesome
           mkdir -p ~/.local/share
           mv fonts ~/.local/share
-          typst compile main.typ
+          typst compile template/main.typ
       - uses: actions/upload-artifact@v4
         with:
           path: ./*.pdf
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
-          files: main.pdf
+          files: template/main.pdf

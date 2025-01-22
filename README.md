@@ -1,4 +1,4 @@
-# USTC proposal template
+# USTC proposal
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ustc-ivclab/ustc-proposal/main.svg)](https://results.pre-commit.ci/latest/github/ustc-ivclab/ustc-proposal/main)
 [![github/workflow](https://github.com/ustc-ivclab/ustc-proposal/actions/workflows/main.yml/badge.svg)](https://github.com/ustc-ivclab/ustc-proposal/actions)
@@ -27,13 +27,33 @@
 [![github/repo-size](https://shields.io/github/repo-size/ustc-ivclab/ustc-proposal)](https://github.com/ustc-ivclab/ustc-proposal)
 [![github/v](https://shields.io/github/v/release/ustc-ivclab/ustc-proposal)](https://github.com/ustc-ivclab/ustc-proposal)
 
+![screenshot](template/images/main-1.png)
+
 ## Dependencies
 
 - [华文字体](https://github.com/chengda/popular-fonts)
 - [中易字体](https://github.com/StellarCN/scp_zh/tree/master/fonts)
+- [方正字体](https://github.com/Kangzhengwei/androidFront)
+- [Times New Roman](https://github.com/siaimes/pytorch/tree/main/fonts)
+- [font-awesome](https://github.com/FortAwesome/Font-Awesome)
 
 ## Build
+
+Download all fonts, then
 
 ```sh
 typst compile main.typ
 ```
+
+Or use Nix:
+
+```sh
+nix run '.#build'
+```
+
+## Related Projects
+
+### USTC proposal template
+
+- [docx](https://cicpi.ustc.edu.cn/indico/conferenceDisplay.py?confId=971)
+- [LaTeX](https://github.com/cgdsss/thesis_proposal_ustc)
