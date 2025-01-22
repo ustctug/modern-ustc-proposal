@@ -1,0 +1,16 @@
+[package]
+name = "ustc-proposal"
+version = "0.1.0"
+entrypoint = "template.typ"
+authors = ["Wu, Zhenyu"]
+license = "GPL-3.0+"
+description = "中国科学技术大学开题报告的 Typst 模板"
+repository = "https://github.com/ustc-ivclab/ustc-proposal"
+keywords = ["thesis", "proposal", "USTC"]
+categories = ["thesis"]
+exclude = ['thumbnail.png']
+
+[template]
+path = "."
+entrypoint = "main.typ"
+thumbnail = "thumbnail.png"

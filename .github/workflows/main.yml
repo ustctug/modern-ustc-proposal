@@ -1,0 +1,38 @@
+---
+"on":
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: chengda/popular-fonts
+          path: fonts/popular-fonts
+      - uses: actions/checkout@v4
+        with:
+          repository: StellarCN/scp_zh
+          path: fonts/scp_zh
+      - uses: typst-community/setup-typst@v3
+      - run: |
+          mkdir -p ~/.local/share
+          mv fonts ~/.local/share
+          typst compile main.typ
+      - uses: actions/upload-artifact@v4
+        with:
+          path: ./*.pdf
+      - uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          files: main.pdf
