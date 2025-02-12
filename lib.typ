@@ -2,7 +2,7 @@
 #import "@preview/fontawesome:0.5.0": fa-icon
 
 //- path (string): your published papers' yaml path
-#let display-bibliography(path) = for (lbl, _) in yaml(path) {
+#let display-bibliography(yaml) = for (lbl, _) in yaml {
   block[#cite(label(lbl), form: "full")]
 }
 
@@ -292,7 +292,7 @@
       ),
     )
   ]
-  if type(publication-bibliography) == "string" {
+  if publication-bibliography != none {
     // force your publications preceder than others
     box(display-bibliography(publication-bibliography), height: 0em, clip: true)
   }

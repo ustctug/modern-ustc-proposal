@@ -1,9 +1,9 @@
-#import "lib.typ": project, display-bibliography
+#import "@preview/ustc-proposal:0.0.1": project, display-bibliography
 #import "@preview/diagraph:0.3.1": render
 
 #let publication-bibliography = "references/my.yml"
 
-#show: project.with(publication-bibliography: publication-bibliography)
+#show: project.with(publication-bibliography: yaml(publication-bibliography))
 
 = 选题依据 <basis>
 #table(
@@ -282,7 +282,7 @@
 
     博士论文（特别是学术博士）应不少于 50 篇文献。非学术或硕士论文可酌减，但至少不少于 20 篇。此处列出的文献都应该在@meaning “研究意义”或者@quo “国内外相关研究工作”或者@content “研究内容和研究方法”中加以引用。文献应编号，格式应统一。
 
-    #bibliography((publication-bibliography, "references/main.yml"), title: none, style: "gb-7714-2015-numeric")
+    #bibliography(("references/my.yml", "references/main.yml"), title: none, style: "gb-7714-2015-numeric")
   ],
 )
 
@@ -294,7 +294,7 @@
 
     请注意限定词为“已发表或被接收发表”的文章。另外除了文章以外，其他成果形式（专利、技术报告、标准提案、数据集、开源软件库等等）都可以列出，但要注意“相关”，即必须与学位论文有相关度。多于一项的成果应编号。样例：
 
-    #display-bibliography(publication-bibliography)
+    #display-bibliography(yaml(publication-bibliography))
   ]
 )
 
