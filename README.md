@@ -49,10 +49,21 @@ typst init @preview/ustc-proposal
 mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
 cd ~/.local/share/typst/packages/preview/ustc-proposal
 git clone --depth=1 https://github.com/ustc-ivclab/ustc-proposal 0.0.1
-cd 0.0.1
+cd 0.0.1/template
 nix run '.#build'
 # Or download all required fonts, then
 typst compile main.typ
+```
+
+## Release
+
+```sh
+git clone --depth=1 https://github.com/typst/packages
+cd package
+cp -r ~/.local/share/typst/packages/preview/ustc-proposal packages/preview
+rm -rf packages/preview/ustc-proposal/*/.git
+git add -A
+git commit -mustc-proposal:0.0.X
 ```
 
 ## Related Projects

@@ -52,7 +52,7 @@
 
         src = typixLib.cleanTypstSource ./.;
         commonArgs = {
-          typstSource = "template/main.typ";
+          typstSource = "main.typ";
 
           fontPaths = [
             "${pkgs.font-awesome}/share/fonts/opentype"
