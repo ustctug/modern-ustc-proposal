@@ -36,8 +36,9 @@ jobs:
       - run: |
           sudo apt-get -y update
           sudo apt-get -y install fonts-font-awesome
-          mkdir -p ~/.local/share
+          mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
           mv fonts ~/.local/share
+          ln -s "$PWD" ~/.local/share/typst/packages/preview/ustc-proposal/0.0.1
           typst compile template/main.typ
       - uses: actions/upload-artifact@v4
         with:
