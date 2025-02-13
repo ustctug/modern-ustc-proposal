@@ -29,14 +29,6 @@
 
 ![screenshot](template/images/main-1.png)
 
-## Dependencies
-
-- [华文字体](https://github.com/chengda/popular-fonts)
-- [中易字体](https://github.com/StellarCN/scp_zh/tree/master/fonts)
-- [方正字体](https://github.com/Kangzhengwei/androidFront)
-- [Times New Roman](https://github.com/siaimes/pytorch/tree/main/fonts)
-- [font-awesome](https://github.com/FortAwesome/Font-Awesome)
-
 ## Usage
 
 ```sh
@@ -48,11 +40,8 @@ typst init @preview/ustc-proposal
 ```sh
 mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
 cd ~/.local/share/typst/packages/preview/ustc-proposal
-git clone --depth=1 https://github.com/ustc-ivclab/ustc-proposal 0.0.1
-cd 0.0.1/template
-nix run '.#build'
-# Or download all required fonts, then
-typst compile main.typ
+git clone --depth=1 https://github.com/ustc-ivclab/ustc-proposal 0.0.X
+cd 0.0.X/template
 ```
 
 ## Release
