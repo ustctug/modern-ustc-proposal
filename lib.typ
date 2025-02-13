@@ -231,7 +231,7 @@
     #table(
       inset: 0pt,
       columns: (1.5em, 100% - 1.5em),
-      rows: (12em, 35em),
+      rows: (12em, 50em),
       align: center + horizon,
       [研究生简介],
       table(
