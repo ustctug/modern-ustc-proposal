@@ -1,7 +1,7 @@
 #import "@preview/cuti:0.3.0": show-cn-fakebold
 #import "@preview/fontawesome:0.5.0": fa-icon
 
-//- path (string): your published papers' yaml path
+//- path (yaml): your published papers' yaml
 #let display-bibliography(yaml) = for (lbl, _) in yaml {
   block[#cite(label(lbl), form: "full")]
 }
@@ -127,7 +127,7 @@
 //- abstract (content): abstract of your paper
 //- keywords (string[]): 3 keywords of your paper
 //- english-keywords (string[]): English translation of `keywords`
-//- publication-bibliography (string | none): the bibliography of your publications
+//- publication-bibliography (yaml | none): the bibliography of your publications
 //- signature (boolean): signature automatically
 //- research-project (string): your tutor's research project name
 //- secret-level (0 | 1 | 2 | 3): no secret | confidential | secret | top secret

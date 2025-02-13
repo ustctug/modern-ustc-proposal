@@ -37,18 +37,22 @@
 - [Times New Roman](https://github.com/siaimes/pytorch/tree/main/fonts)
 - [font-awesome](https://github.com/FortAwesome/Font-Awesome)
 
-## Build
-
-Download all fonts, then
+## Usage
 
 ```sh
-typst compile main.typ
+typst init @preview/ustc-proposal
 ```
 
-Or use Nix:
+## Development
 
 ```sh
+mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
+cd ~/.local/share/typst/packages/preview/ustc-proposal
+git clone --depth=1 https://github.com/ustc-ivclab/ustc-proposal 0.0.1
+cd 0.0.1
 nix run '.#build'
+# Or download all required fonts, then
+typst compile main.typ
 ```
 
 ## Related Projects
