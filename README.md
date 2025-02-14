@@ -27,7 +27,7 @@
 [![github/repo-size](https://shields.io/github/repo-size/ustc-ivclab/ustc-proposal)](https://github.com/ustc-ivclab/ustc-proposal)
 [![github/v](https://shields.io/github/v/release/ustc-ivclab/ustc-proposal)](https://github.com/ustc-ivclab/ustc-proposal)
 
-![screenshot](template/images/main-1.png)
+![screenshot](template/images/thumbnail.png)
 
 ## Usage
 
