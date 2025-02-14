@@ -313,7 +313,7 @@
 
     #figure(render(read("figures/digraph.gv")), caption: "研究生开题报告流程")
 
-    #figure(image("images/thumbnail.png", width: 50%), caption: "研究生开题报告缩略图")
+    #figure(image("images/thumbnail.png"), caption: "研究生开题报告缩略图")
 
     #figure(table(columns: 2, [姓名], [身份], ..csv("tables/members.csv").flatten()), caption: "评审小组")
 
