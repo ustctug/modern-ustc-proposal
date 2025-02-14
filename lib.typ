@@ -233,7 +233,7 @@
     #table(
       inset: 0pt,
       columns: (1.5em, 100% - 1.5em),
-      rows: (12em, 50em),
+      rows: (12em, 52.93em),
       align: center + horizon,
       [研究生简介],
       table(
@@ -278,7 +278,7 @@
           [英文], english-title,
         ),
 
-        [摘要], box(height: 100%, width: 100%, inset: 5pt)[#align(left + top)[#h(2em)#abstract]],
+        [摘要], box(align(abstract, left + top), height: 100%, width: 100%, inset: 5pt),
         [主题词],
         table(
           inset: 0pt,
@@ -302,8 +302,8 @@
 
   body
 
-  align(right + bottom)[
-    #box[
+  align(
+    box[
       研究生本人签名：
       #box(width: 10em)[
         #set align(center)
@@ -313,8 +313,9 @@
         } else [　　　　])]
 
       #date.display("[year]年[month]月[day]日")
-    ]
-  ]
+    ],
+    right + bottom,
+  )
   pagebreak(to: "odd")
 
   align(center)[
