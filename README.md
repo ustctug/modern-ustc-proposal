@@ -29,6 +29,10 @@
 
 ![screenshot](template/images/thumbnail.png)
 
+## Dependencies
+
+- [typst](https://github.com/typst/typst) `>= 0.13.0`
+
 ## Usage
 
 ```sh

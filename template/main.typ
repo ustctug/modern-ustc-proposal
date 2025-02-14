@@ -7,7 +7,6 @@
 
 = 选题依据 <basis>
 #table(
-  columns: 100%,
   [阐述该选题的研究意义，分析该研究课题国内外研究的概况和发展趋势。
 
     这部分可以配图表，图表都应编号。十分必要的情况下可以配公式（但不建议）。
@@ -17,12 +16,13 @@
     == 研究意义 <meaning>
     *1.5\~3 页*
 
-    #set enum(full: true, numbering:
-      (..args) => if args.pos().len() == 1 {
+    #set enum(
+      full: true,
+      numbering: (..args) => if args.pos().len() == 1 {
         numbering("1.", args.pos().last())
       } else if args.pos().len() == 2 {
         numbering("(1)", args.pos().last())
-      }
+      },
     )
     #align(center)[*研究生开题报告流程* @procedures]
 
@@ -62,15 +62,15 @@
 
     #set heading(numbering: (..args) => strong(numbering("第一章", args.pos().last())) + h(1em))
     #show heading: it => align(center)[#it]
-    #set enum(full: true, numbering:
-      (..args) => if args.pos().len() == 1 {
+    #set enum(
+      full: true,
+      numbering: (..args) => if args.pos().len() == 1 {
         strong(numbering("第一条", args.pos().last()))
       } else if args.pos().len() == 2 {
         numbering("（一）", args.pos().last())
       } else if args.pos().len() == 3 {
         numbering("1. ", args.pos().last())
-      } else {
-      }
+      } else { },
     )
     #align(center)[*中国科学技术大学博士研究分流退出机制实施办法*]
     === 总　则
@@ -288,7 +288,6 @@
 
 = 已取得的与论文研究内容相关的成果 <achievement>
 #table(
-  columns: 100%,
   [
     已发表或被接收发表的文章目录或其它相关研究成果。
 
@@ -300,7 +299,6 @@
 
 = 研究内容和研究方法 <content>
 #table(
-  columns: 100%,
   [
     主要研究内容及预期成果，拟采用的研究方法、技术路线、实验方案的可行性分析。
 
@@ -334,7 +332,6 @@
 
 = 课题研究的创新之处
 #table(
-  columns: 100%,
   [
     研究内容、拟采用的研究方法、技术路线等方面有哪些创新之处。
 
@@ -348,7 +345,6 @@
 
 = 研究工作进度安排
 #table(
-  columns: 100%,
   [
     应包括文献调研，工程设计，新工艺、新材料、新设备、新产品的研制和调试，实验操作，实验数据的分析处理，撰写论文等。
 

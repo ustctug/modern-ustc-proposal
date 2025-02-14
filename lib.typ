@@ -160,8 +160,9 @@
   show heading: set text(size: 10.5pt, weight: "regular")
   show heading.where(level: 1): set text(font: "SimHei", size: 15pt)
 
-  set par(first-line-indent: 2em)
+  set par(first-line-indent: (amount: 2em, all: true))
   set image(width: 50%)
+  set table(columns: 100%)
   set document(title: cn-title, author: author)
   set text(font: ("Times New Roman", "SimSun"), size: 10.5pt, lang: "zh")
   set enum(numbering: "1.a.i.")
