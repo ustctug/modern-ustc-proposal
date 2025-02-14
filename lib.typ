@@ -162,7 +162,6 @@
 
   set par(first-line-indent: (amount: 2em, all: true))
   set image(width: 50%)
-  set table(columns: 100%)
   set document(title: cn-title, author: author)
   set text(font: ("Times New Roman", "SimSun"), size: 10.5pt, lang: "zh")
   set enum(numbering: "1.a.i.")
@@ -298,9 +297,33 @@
     // force your publications preceder than others
     box(display-bibliography(publication-bibliography), height: 0em, clip: true)
   }
-  pagebreak()
 
-  body
+  let headings = ()
+  for child in body.children {
+    if child == linebreak() or child == parbreak() or child == [ ] {
+      continue
+    }
+    if child.func() == heading and child.depth == 1 {
+      if headings.len() > 0 and headings.last().elems.len() == 0 {
+        headings.last().elems.push(parbreak())
+      }
+      headings.push((heading: child, elems: ()))
+    } else {
+      if headings.len() == 0 {
+        headings.push((heading: none, elems: ()))
+      }
+
+      headings.last().elems.push(child)
+    }
+  }
+
+  for section in headings {
+    section.heading
+    table(
+      columns: 100%,
+      for elem in section.elems { elem },
+    )
+  }
 
   align(
     box[
