@@ -300,19 +300,12 @@
 
   let headings = ()
   for child in body.children {
-    if child == linebreak() or child == parbreak() or child == [ ] {
-      continue
-    }
     if child.func() == heading and child.depth == 1 {
       if headings.len() > 0 and headings.last().elems.len() == 0 {
         headings.last().elems.push(parbreak())
       }
       headings.push((heading: child, elems: ()))
-    } else {
-      if headings.len() == 0 {
-        headings.push((heading: none, elems: ()))
-      }
-
+    } else if headings.len() != 0 {
       headings.last().elems.push(child)
     }
   }
