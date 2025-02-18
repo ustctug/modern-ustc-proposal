@@ -160,6 +160,7 @@
   show heading: set text(size: 10.5pt, weight: "regular")
   show heading.where(level: 1): set text(font: "SimHei", size: 15pt)
 
+  set bibliography(title: none, style: "gb-7714-2015-numeric")
   set par(first-line-indent: (amount: 2em, all: true))
   set image(width: 50%)
   set document(title: cn-title, author: author)

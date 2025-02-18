@@ -279,7 +279,7 @@
 == 参考文献 <bibliography> // serve @bibliography so you can delete it
 博士论文（特别是学术博士）应不少于 50 篇文献。非学术或硕士论文可酌减，但至少不少于 20 篇。此处列出的文献都应该在@meaning “研究意义”或者@quo “国内外相关研究工作”或者@content “研究内容和研究方法”中加以引用。文献应编号，格式应统一。
 
-#bibliography(("references/my.yml", "references/main.yml"), title: none, style: "gb-7714-2015-numeric")
+#bibliography(("references/my.yml", "references/main.yml"))
 
 = 已取得的与论文研究内容相关的成果 <achievement>
 已发表或被接收发表的文章目录或其它相关研究成果。
