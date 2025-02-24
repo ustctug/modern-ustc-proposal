@@ -5,7 +5,7 @@ entrypoint = "lib.typ"
 authors = ["Wu, Zhenyu"]
 license = "GPL-3.0"
 description = "template for University of Science and Technology of China proposal"
-repository = "https://github.com/ustc-ivclab/ustc-proposal"
+repository = "https://github.com/ustctug/ustc-proposal"
 keywords = ["thesis", "proposal", "USTC"]
 categories = ["thesis"]
 
