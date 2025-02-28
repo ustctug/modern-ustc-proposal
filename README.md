@@ -64,4 +64,4 @@ git commit -mustc-proposal:0.0.X
 ### USTC proposal template
 
 - [docx](https://cicpi.ustc.edu.cn/indico/conferenceDisplay.py?confId=971)
-- [LaTeX](https://github.com/cgdsss/thesis_proposal_ustc)
+- [LaTeX](https://github.com/ustctug/thesis_proposal_ustc)
