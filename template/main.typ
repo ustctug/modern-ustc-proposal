@@ -1,5 +1,5 @@
 #import "@preview/ustc-proposal:0.0.1": project, display-bibliography
-#import "@preview/diagraph:0.3.1": render
+#import "@preview/diagraph:0.3.3": render
 
 #let publication-bibliography = "references/my.yml"
 
@@ -298,11 +298,7 @@
 == 研究内容
 *1\~2 页*
 
-#{
-  // https://github.com/Robotechnic/diagraph/issues/41
-  set image(width: auto)
-  figure(render(read("figures/digraph.gv")), caption: "研究生开题报告流程")
-}
+#figure(render(read("figures/digraph.gv")), caption: "研究生开题报告流程")
 
 #figure(image("images/thumbnail.png"), caption: "研究生开题报告缩略图")
 
