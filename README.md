@@ -41,44 +41,6 @@ typst init @preview/modern-ustc-proposal
 
 See [README.md](template).
 
-## Development
-
-1. Download code to `~/.local/share/typst/packages` to override
-   [typst-packages](https://github.com/typst/packages)'s `~/.cache/typst/packages`.
-
-   ```sh
-   mkdir -p ~/.local/share/typst/packages/preview/modern-ustc-proposal
-   cd ~/.local/share/typst/packages/preview/modern-ustc-proposal
-   git clone --depth=1 https://github.com/ustctug/modern-ustc-proposal X.Y.Z
-   ```
-
-   Download [needed fonts](template). If you use nix, nix will
-   download it automatically.
-
-2. Compile in background.
-
-   ```sh
-   cd X.Y.Z/template
-   typst watch main.typ &
-   # or use nix
-   nix run '.#watch' &
-   ```
-
-3. Edit source code and watch the compiled pdf.
-
-   ```sh
-   cd ..
-   "$EDITOR" lib.typ
-   ```
-
-4. If it is OK, you can commit it.
-
-   ```sh
-   git add -A
-   git commit -m':bug: Fix a bug'
-   git push
-   ```
-
 ## Related Projects
 
 ### USTC proposal template

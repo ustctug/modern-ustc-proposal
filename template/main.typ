@@ -1,4 +1,4 @@
-#import "@preview/modern-ustc-proposal:0.0.1": project, display-bibliography
+#import "@preview/modern-ustc-proposal:0.0.1": display-bibliography, project
 #import "@preview/diagraph:0.3.3": render
 
 #let publication-bibliography = "references/my.yml"
@@ -15,18 +15,101 @@
 == 研究意义 <meaning>
 *1.5\~3 页*
 
-#[
-  #align(center)[*研究生开题报告流程* @procedures]
-  #set enum(
-    full: true,
-    numbering: (..args) => if args.pos().len() == 1 {
-      numbering("1.", args.pos().last())
-    } else if args.pos().len() == 2 {
-      numbering("(1)", args.pos().last())
-    },
-  )
+== 国内外研究现状和发展趋势 <quo>
+*3 页以上*
 
-  + 在导师指导下，学生撰写《研究生学位论文开题报告》，报告模板可从以下网址 @docx 下载： http://cicpi.ustc.edu.cn/indico/conferenceDisplay.py?confId=971
+国内外主要参考文献（列出作者、论文名称、期刊名称、出版年月）。
+
+== 参考文献 <bibliography> // serve @bibliography so you can delete it
+博士论文（特别是学术博士）应不少于 50 篇文献。非学术或硕士论文可酌减，但至少不少于 20 篇。此处列出的文献都应该在@meaning “研究意义”或者@quo “国内外相关研究工作”或者@content “研究内容和研究方法”中加以引用。文献应编号，格式应统一。
+
+#bibliography(("references/my.yml", "references/main.yml"))
+
+= 已取得的与论文研究内容相关的成果 <achievement>
+已发表或被接收发表的文章目录或其它相关研究成果。
+
+请注意限定词为“已发表或被接收发表”的文章。另外除了文章以外，其他成果形式（专利、技术报告、标准提案、数据集、开源软件库等等）都可以列出，但要注意“相关”，即必须与学位论文有相关度。多于一项的成果应编号。样例：
+
+#display-bibliography(yaml(publication-bibliography))
+
+= 研究内容和研究方法 <content>
+主要研究内容及预期成果，拟采用的研究方法、技术路线、实验方案的可行性分析。
+
+这部分必须有图表，可以配公式。图、表、公式都应有编号。可以引用参考文献，文献应列在@bibliography 中。
+
+一般分为四小节：
+
+== 研究内容
+*1\~2 页*
+
+#figure(render(read("figures/digraph.gv"), width: 20%), caption: "研究生开题报告流程")
+
+#figure(
+  table(
+    columns: 2,
+    [姓名], [身份], ..csv("tables/members.csv").flatten(),
+  ),
+  caption: "评审小组",
+)
+
+== 预期成果
+此处主要介绍研究的预期成果， *0.5 页左右*
+
+#figure(image("images/thumbnail.png"), caption: "研究生开题报告缩略图")
+
+== 研究方案
+包括研究方法、技术路线、实验方案等， *10 页以上*
+
+=== 如何开发该 typst 模板
+
+1. 下载代码到 `~/.local/share/typst/packages` 去覆盖 #link("https://github.com/typst/packages")[typst-packages] 默认的 `~/.cache/typst/packages`。这里 `X.Y.Z` 是最新版本号。
+  ```sh
+  mkdir -p ~/.local/share/typst/packages/preview/modern-ustc-proposal
+  cd ~/.local/share/typst/packages/preview/modern-ustc-proposal
+  git clone --depth=1 https://github.com/ustctug/modern-ustc-proposal X.Y.Z
+  ```
+2. 在后台编译。
+  ```sh
+  cd X.Y.Z/template
+  typst watch main.typ &
+  # or use nix
+  nix run '.#watch' &
+  ```
+3. 编辑代码并观看编译后的 pdf 文件。
+  ```sh
+  cd ..
+  "$EDITOR" lib.typ
+  ```
+4. 贡献改动。
+  ```sh
+  git add -A
+  git commit -m':bug: Fix a bug'
+  git push
+  ```
+5. 发布新版本并推送到 #link("https://github.com/typst/packages")[typst-packages] 。
+  ```sh
+  git tag X.Y.Z+1 -m'Release a new version'
+  cd ..
+  mv X.Y.Z X.Y.Z+1
+  cd
+  git clone --depth=1 https://github.com/typst/packages
+  cd packages
+  cp -r ~/.local/share/typst/packages/preview/modern-ustc-proposal/X.Y.Z+1 packages/preview/modern-ustc-proposal
+  rm -rf packages/preview/modern-ustc-proposal/X.Y.Z+1/.git
+  git add -A
+  git commit -mmodern-ustc-proposal:X.Y.Z+1
+  gh pr create
+  ```
+=== 研究生开题报告流程@procedures
+#[
+  #align(center)[*研究生开题报告流程*]
+  #set enum(full: true, numbering: (..args) => if args.pos().len() == 1 {
+    numbering("1.", args.pos().last())
+  } else if args.pos().len() == 2 {
+    numbering("(1)", args.pos().last())
+  })
+
+  + 在导师指导下，学生撰写《研究生学位论文开题报告》，报告模板可从以下网址 @docx 下载： http://cicpi.ustc.edu.cn/indico/conferenceDisplay.py?confId=971 #footnote[备注： LaTeX 模板 @latex]
   + 《研究生学位论文开题报告》须由导师审核通过，导师将评审意见写入《研究生学位论文开题报告评审表》，评审表可从以上相同网址下载。
   + 组织本学科及相关学科的专家 5 人以上（其中教授/研究员不少于 3 人），形成开题报告评审小组，并任命组长。安排一名开题报告秘书，负责记录和录入工作。
   + 进行开题报告答辩
@@ -46,32 +129,28 @@
   + 博生生开题报告原则上应在取得博士生资格一年以后、博士论文答辩至少一年以前进行。
   + 在国外或其它原因未能现场进行开题报告答辩者，应提前申请视频答辩，并确保网络连接的效果。
   + 未通过开题报告答辩的学生没有资格参加博士论文答辩。每位学生可以有两次进行开题报告的机会。
-
-  LaTeX 模板 @latex
-
-  == 国内外研究现状和发展趋势 <quo>
-  *3 页以上*
-
-  #align(center)[*《中国科学技术大学博士研究分流退出机制实施办法》的通知* @exit]
+]
+=== 《中国科学技术大学博士研究分流退出机制实施办法》的通知@exit
+#[
+  #align(center)[*《中国科学技术大学博士研究分流退出机制实施办法》的通知*]
 
   各院、系、重点科研机构、直属单位、附属医院，机关各部门：
 
   为深入贯彻全国研究生教育会议精神，落实《教育部 国家发展改革委 财政部关于加快新时代研究生教育改革发展的意见》《国务院学位委员会 教育部关于进一步严格规范学位与研究生教育质量管理的若干意见》要求，进一步推进研究生教育“德创”领军人才培养计划，促进研究生教育内涵式发展，建立健全博士研究生培养过程的分流退出机制，结合我校实际，学校研究制定了《中国科学技术大学博士研究生培养分流退出机制实施办法》，经校长工作会议审议通过，现予以印发施行。
 
   特此通知。
-
-  #set heading(numbering: (..args) => strong(numbering("第一章", args.pos().last())) + h(1em))
+]
+=== 中国科学技术大学博士研究分流退出机制实施办法
+#[
+  #set heading(numbering: (..args) => strong(numbering("第一章", args.pos().last() - 4)) + h(1em))
   #show heading: it => align(center)[#it]
-  #set enum(
-    full: true,
-    numbering: (..args) => if args.pos().len() == 1 {
-      strong(numbering("第一条", args.pos().last()))
-    } else if args.pos().len() == 2 {
-      numbering("（一）", args.pos().last())
-    } else if args.pos().len() == 3 {
-      numbering("1. ", args.pos().last())
-    } else { },
-  )
+  #set enum(full: true, numbering: (..args) => if args.pos().len() == 1 {
+    strong(numbering("第一条", args.pos().last()))
+  } else if args.pos().len() == 2 {
+    numbering("（一）", args.pos().last())
+  } else if args.pos().len() == 3 {
+    numbering("1. ", args.pos().last())
+  } else {})
   #align(center)[*中国科学技术大学博士研究分流退出机制实施办法*]
   === 总　则
   + 为深入贯彻全国研究生教育会议精神，落实《教育部 国家发展改革委 财政部关于加快新时代研究生教育改革发展的意见》《国务院学位委员会 教育部关于进一步严格规范学位与研究生教育质量管理的若干意见》要求，进一步推进研究生教育“德创”领军人才培养计划，立足提升博士研究生培养质量，造就一流高层次人才，推动研究生教育内涵式发展，建立健全博士研究生培养过程的分流退出机制，结合学校实际，制定本办法。
@@ -274,48 +353,12 @@
   + 本办法自 2023 级博士生开始执行。
 ]
 
-国内外主要参考文献（列出作者、论文名称、期刊名称、出版年月）。
-
-== 参考文献 <bibliography> // serve @bibliography so you can delete it
-博士论文（特别是学术博士）应不少于 50 篇文献。非学术或硕士论文可酌减，但至少不少于 20 篇。此处列出的文献都应该在@meaning “研究意义”或者@quo “国内外相关研究工作”或者@content “研究内容和研究方法”中加以引用。文献应编号，格式应统一。
-
-#bibliography(("references/my.yml", "references/main.yml"))
-
-= 已取得的与论文研究内容相关的成果 <achievement>
-已发表或被接收发表的文章目录或其它相关研究成果。
-
-请注意限定词为“已发表或被接收发表”的文章。另外除了文章以外，其他成果形式（专利、技术报告、标准提案、数据集、开源软件库等等）都可以列出，但要注意“相关”，即必须与学位论文有相关度。多于一项的成果应编号。样例：
-
-#display-bibliography(yaml(publication-bibliography))
-
-= 研究内容和研究方法 <content>
-主要研究内容及预期成果，拟采用的研究方法、技术路线、实验方案的可行性分析。
-
-这部分必须有图表，可以配公式。图、表、公式都应有编号。可以引用参考文献，文献应列在@bibliography 中。
-
-一般分为四小节：
-
-== 研究内容
-*1\~2 页*
-
-#figure(render(read("figures/digraph.gv")), caption: "研究生开题报告流程")
-
-#figure(image("images/thumbnail.png"), caption: "研究生开题报告缩略图")
-
-#figure(table(columns: 2, [姓名], [身份], ..csv("tables/members.csv").flatten()), caption: "评审小组")
+== 可行性分析
+*0.5 页左右*
 
 $
   bb(P)("paper is accepted") = bb(P){"capability"_"you tell story" / "capability"_"reviewer understand" > epsilon}
 $
-
-== 预期成果
-此处主要介绍研究的预期成果， *0.5 页左右*
-
-== 研究方案
-包括研究方法、技术路线、实验方案等， *10 页以上*
-
-== 可行性分析
-*0.5 页左右*
 
 = 课题研究的创新之处
 研究内容、拟采用的研究方法、技术路线等方面有哪些创新之处。
