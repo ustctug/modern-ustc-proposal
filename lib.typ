@@ -25,11 +25,10 @@
 //- id (string): Chinese citizens id
 #let get-gender-from-id(id) = if calc.odd(int(id.at(16))) { "男" } else { "女" }
 //- id (string): Chinese citizens id
-#let get-birth-date-from-id(id) = datetime(
-  year: int(id.slice(6, 10)),
-  month: int(id.slice(10, 12)),
-  day: int(id.slice(12, 14)),
-)
+#let get-birth-date-from-id(id) = datetime(year: int(id.slice(6, 10)), month: int(id.slice(10, 12)), day: int(id.slice(
+  12,
+  14,
+)))
 //- id (string): student id
 #let get-admission-date-from-student-id(id) = datetime(year: 2000 + int(id.slice(2, 4)), month: 9, day: 1)
 // https://www.ustcif.org.cn/default.php/content/2420/
@@ -128,7 +127,9 @@
 //- keywords (string[]): 3 keywords of your paper
 //- english-keywords (string[]): English translation of `keywords`
 //- publication-bibliography (yaml | none): the bibliography of your publications
-//- signature (boolean): signature automatically
+//- signature (boolean | content): signature
+//- teachers-signatures ((boolean | content)[]): teachers' signatures
+//- teachers-opinion (content): teachers' opinion
 //- research-project (string): your tutor's research project name
 //- secret-level (0 | 1 | 2 | 3): no secret | confidential | secret | top secret
 //- body (content): the content of the proposal
@@ -149,12 +150,53 @@
   english-keywords: ("one", "two", "three"),
   publication-bibliography: none,
   signature: true,
+  teachers-signatures: (true, true),
+  teachers-opinion: "同意开题",
   research-project: "请找导师获得项目信息",
   secret-level: 0,
   body,
 ) = {
-  assert(keywords.len() < 4 and english-keywords.len() < 4, message: "keywords must < 3!")
+  assert(keywords.len() < 4 and english-keywords.len() < 4, message: "主题词数量不多于三个！")
+  if is-academic-from-student-id(id) {
+    assert(teachers.len() > 0, message: "你的导师呢？")
+  } else {
+    assert(teachers.len() > 1, message: "专业学位硕博生必须有实践导师！")
+  }
   let cn-title = titles.join()
+
+  if signature == true {
+    signature = [
+      // 方正静蕾
+      #set text(font: "FZJingLeiS-R-GB", style: "italic")
+      #author
+    ]
+  } else if signature == false {
+    signature = [　　　　]
+  }
+  if teachers-signatures.len() < 1 {
+    teachers-signatures.push(true)
+  }
+  if teachers-signatures.len() < 2 {
+    teachers-signatures.push(true)
+  }
+  if teachers-signatures.at(0) == true {
+    teachers-signatures.at(0) = [
+      #teachers.at(0)
+    ]
+  } else if teachers-signatures.at(0) == false {
+    teachers-signatures.at(0) = [　　　　]
+  }
+  if not is-academic-from-student-id(id) {
+    if teachers-signatures.at(1) == true {
+      // 民间手抄写
+      teachers-signatures.at(1) = [
+        #set text(font: "MJT-5982", style: "italic")
+        #teachers.at(1)
+      ]
+    } else if teachers-signatures.at(1) == false {
+      teachers-signatures.at(1) = [　　　　]
+    }
+  }
 
   show: show-cn-fakebold
   show heading: set text(size: 10.5pt, weight: "regular")
@@ -167,15 +209,13 @@
   set text(font: ("Times New Roman", "SimSun"), size: 10.5pt, lang: "zh")
   set enum(numbering: "1.a.i.")
   set page(numbering: "1")
-  set heading(
-    numbering: (
-      (..args) => if args.pos().len() == 1 {
-        numbering("一.", ..args)
-      } else {
-        numbering("1.1.", ..args)
-      }
-    ),
-  )
+  set heading(numbering: (
+    (..args) => if args.pos().len() == 1 {
+      numbering("一.", ..args)
+    } else {
+      numbering("1.1.", ..args)
+    }
+  ))
 
   align(center)[
     #set text(font: "STXingkai", size: 22pt)
@@ -229,7 +269,8 @@
   ]
   pagebreak()
 
-  [= 简况
+  [
+    = 简况
     #table(
       inset: 0pt,
       columns: (1.5em, 100% - 1.5em),
@@ -324,10 +365,8 @@
       研究生本人签名：
       #box(width: 10em)[
         #set align(center)
-        #underline(if signature {
-          set text(font: "FZJingLeiS-R-GB", style: "italic")
-          author
-        } else [　　　　])]
+        #underline(box(signature))
+      ]
 
       #date.display("[year]年[month]月[day]日")
     ],
@@ -361,7 +400,7 @@
       ),
       table(
         inset: 0pt,
-        columns: (13%, 100% - 13% - 10% - 15%, 8%, 17%),
+        columns: (13%, 100% - 13% - 8% - 17%, 8%, 17%),
         rows: 1fr,
         [学位论文
 
@@ -370,12 +409,15 @@
           align: left,
           columns: 1fr,
           rows: 1fr,
-          [1．不保密（#{if secret-level == 0 {fa-icon("check-square", solid: false)} else [ ]}）],
-          [2．保密 （#{if secret-level > 0 {fa-icon("check-square", solid: false)} else [ ]}） 密级：绝密（#{if secret-level == 3 {fa-icon("check-square", solid: false)} else [ ]}）、机密（#{if secret-level == 2 {fa-icon("check-square", solid: false)} else [ ]}）、秘密（#{if secret-level == 1 {fa-icon("check-square", solid: false)} else [ ]}）],
+          [1．不保密（#{ if secret-level == 0 { fa-icon("check-square", solid: false) } else [ ] }）],
+          [2．保密 （#{ if secret-level > 0 { fa-icon("check-square", solid: false) } else [ ] }） 密级：绝密（#{ if secret-level == 3 { fa-icon("check-square", solid: false) } else [ ] }）、机密（#{ if secret-level == 2 { fa-icon("check-square", solid: false) } else [ ] }）、秘密（#{ if secret-level == 1 { fa-icon("check-square", solid: false) } else [ ] }）],
         ),
         [导师
 
           签字],
+        [
+          #teachers-signatures.at(0)
+        ],
       ),
       [开题报告评审组成员名单],
       {
@@ -390,11 +432,13 @@
         #set text(font: "SimSun")
         #align(left + top)[
           指导教师意见：
+
+          #teachers-opinion
         ]
         #align(right + bottom)[
-          指导教师签字：　　　　实践导师签字（专业学位硕博生须签字）：　　　　// keep spaces
+          指导教师签字：#box(teachers-signatures.at(0)) 实践导师签字（专业学位硕博生须签字）：#box(teachers-signatures.at(1))
 
-          年　月　日
+          #date.display("[year]年[month]月[day]日")
         ]
       ],
       box(height: 100%, width: 100%, inset: 5pt)[
@@ -407,7 +451,7 @@
 
           年　月　日
         ]
-      ]
+      ],
     )
   ]
 }
