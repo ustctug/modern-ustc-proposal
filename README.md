@@ -75,11 +75,7 @@ See [README.md](template).
 
    ```sh
    git add -A
-   git commit -m'Fix a bug'
-   git push
-   # or release a new version
-   git commit -mmodern-ustc-proposal:X.Y.Z
-   git push --tags
+   git commit -m':bug: Fix a bug'
    git push
    ```
 
