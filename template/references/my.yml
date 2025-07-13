@@ -17,7 +17,7 @@ my-periodical:
       issue: 42
       publisher: 出版商
     - type: repository
-      url: https://github.com/ustc-ivclab/ustc-proposal/
+      url: https://github.com/ustctug/modern-ustc-proposal/
 
 my-proceedings:
   type: article
@@ -34,7 +34,7 @@ my-proceedings:
       date: 1970-01-01
       location: 会议地点
     - type: repository
-      url: https://github.com/ustc-ivclab/ustc-proposal/
+      url: https://github.com/ustctug/modern-ustc-proposal/
 
 my-patent:
   type: patent
@@ -53,7 +53,7 @@ my-report:
   author:
     - 君の名前
     - 指导老师
-  url: https://github.com/ustc-ivclab/ustc-proposal/
+  url: https://github.com/ustctug/modern-ustc-proposal/
 
 my-reference:
   type: reference
@@ -71,7 +71,7 @@ my-dataset:
   author:
     - 君の名前
     - 指导老师
-  url: https://github.com/ustc-ivclab/ustc-proposal/releases
+  url: https://github.com/ustctug/modern-ustc-proposal/releases
 
 my-repository:
   type: repository
@@ -79,4 +79,4 @@ my-repository:
   author:
     - 君の名前
     - 指导老师
-  url: https://github.com/ustc-ivclab/ustc-proposal/
+  url: https://github.com/ustctug/modern-ustc-proposal/

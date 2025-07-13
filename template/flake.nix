@@ -1,5 +1,5 @@
 {
-  description = "ustc-proposal";
+  description = "modern-ustc-proposal";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

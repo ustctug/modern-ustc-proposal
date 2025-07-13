@@ -1,31 +1,31 @@
 # USTC proposal
 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ustctug/ustc-proposal/main.svg)](https://results.pre-commit.ci/latest/github/ustctug/ustc-proposal/main)
-[![github/workflow](https://github.com/ustctug/ustc-proposal/actions/workflows/main.yml/badge.svg)](https://github.com/ustctug/ustc-proposal/actions)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/ustctug/modern-ustc-proposal/main.svg)](https://results.pre-commit.ci/latest/github/ustctug/modern-ustc-proposal/main)
+[![github/workflow](https://github.com/ustctug/modern-ustc-proposal/actions/workflows/main.yml/badge.svg)](https://github.com/ustctug/modern-ustc-proposal/actions)
 
-[![github/downloads](https://shields.io/github/downloads/ustctug/ustc-proposal/total)](https://github.com/ustctug/ustc-proposal/releases)
-[![github/downloads/latest](https://shields.io/github/downloads/ustctug/ustc-proposal/latest/total)](https://github.com/ustctug/ustc-proposal/releases/latest)
-[![github/issues](https://shields.io/github/issues/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/issues)
-[![github/issues-closed](https://shields.io/github/issues-closed/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/issues?q=is%3Aissue+is%3Aclosed)
-[![github/issues-pr](https://shields.io/github/issues-pr/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/pulls)
-[![github/issues-pr-closed](https://shields.io/github/issues-pr-closed/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/pulls?q=is%3Apr+is%3Aclosed)
-[![github/discussions](https://shields.io/github/discussions/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/discussions)
-[![github/milestones](https://shields.io/github/milestones/all/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/milestones)
-[![github/forks](https://shields.io/github/forks/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/network/members)
-[![github/stars](https://shields.io/github/stars/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/stargazers)
-[![github/watchers](https://shields.io/github/watchers/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/watchers)
-[![github/contributors](https://shields.io/github/contributors/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/graphs/contributors)
-[![github/commit-activity](https://shields.io/github/commit-activity/w/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/graphs/commit-activity)
-[![github/last-commit](https://shields.io/github/last-commit/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/commits)
-[![github/release-date](https://shields.io/github/release-date/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/releases/latest)
+[![github/downloads](https://shields.io/github/downloads/ustctug/modern-ustc-proposal/total)](https://github.com/ustctug/modern-ustc-proposal/releases)
+[![github/downloads/latest](https://shields.io/github/downloads/ustctug/modern-ustc-proposal/latest/total)](https://github.com/ustctug/modern-ustc-proposal/releases/latest)
+[![github/issues](https://shields.io/github/issues/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/issues)
+[![github/issues-closed](https://shields.io/github/issues-closed/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/issues?q=is%3Aissue+is%3Aclosed)
+[![github/issues-pr](https://shields.io/github/issues-pr/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/pulls)
+[![github/issues-pr-closed](https://shields.io/github/issues-pr-closed/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/pulls?q=is%3Apr+is%3Aclosed)
+[![github/discussions](https://shields.io/github/discussions/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/discussions)
+[![github/milestones](https://shields.io/github/milestones/all/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/milestones)
+[![github/forks](https://shields.io/github/forks/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/network/members)
+[![github/stars](https://shields.io/github/stars/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/stargazers)
+[![github/watchers](https://shields.io/github/watchers/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/watchers)
+[![github/contributors](https://shields.io/github/contributors/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/graphs/contributors)
+[![github/commit-activity](https://shields.io/github/commit-activity/w/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/graphs/commit-activity)
+[![github/last-commit](https://shields.io/github/last-commit/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/commits)
+[![github/release-date](https://shields.io/github/release-date/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/releases/latest)
 
-[![github/license](https://shields.io/github/license/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal/blob/main/LICENSE)
-[![github/languages](https://shields.io/github/languages/count/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
-[![github/languages/top](https://shields.io/github/languages/top/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
-[![github/directory-file-count](https://shields.io/github/directory-file-count/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
-[![github/code-size](https://shields.io/github/languages/code-size/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
-[![github/repo-size](https://shields.io/github/repo-size/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
-[![github/v](https://shields.io/github/v/release/ustctug/ustc-proposal)](https://github.com/ustctug/ustc-proposal)
+[![github/license](https://shields.io/github/license/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal/blob/main/LICENSE)
+[![github/languages](https://shields.io/github/languages/count/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
+[![github/languages/top](https://shields.io/github/languages/top/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
+[![github/directory-file-count](https://shields.io/github/directory-file-count/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
+[![github/code-size](https://shields.io/github/languages/code-size/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
+[![github/repo-size](https://shields.io/github/repo-size/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
+[![github/v](https://shields.io/github/v/release/ustctug/modern-ustc-proposal)](https://github.com/ustctug/modern-ustc-proposal)
 
 ![screenshot](template/images/thumbnail.png)
 
@@ -36,28 +36,52 @@
 ## Usage
 
 ```sh
-typst init @preview/ustc-proposal
+typst init @preview/modern-ustc-proposal
 ```
+
+See [README.md](template).
 
 ## Development
 
-```sh
-mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
-cd ~/.local/share/typst/packages/preview/ustc-proposal
-git clone --depth=1 https://github.com/ustctug/ustc-proposal 0.0.X
-cd 0.0.X/template
-```
+1. Download code to `~/.local/share/typst/packages` to override
+   [typst-packages](https://github.com/typst/packages)'s `~/.cache/typst/packages`.
 
-## Release
+   ```sh
+   mkdir -p ~/.local/share/typst/packages/preview/modern-ustc-proposal
+   cd ~/.local/share/typst/packages/preview/modern-ustc-proposal
+   git clone --depth=1 https://github.com/ustctug/modern-ustc-proposal X.Y.Z
+   ```
 
-```sh
-git clone --depth=1 https://github.com/typst/packages
-cd package
-cp -r ~/.local/share/typst/packages/preview/ustc-proposal packages/preview
-rm -rf packages/preview/ustc-proposal/*/.git
-git add -A
-git commit -mustc-proposal:0.0.X
-```
+   Download [needed fonts](template). If you use nix, nix will
+   download it automatically.
+
+2. Compile in background.
+
+   ```sh
+   cd X.Y.Z/template
+   typst watch main.typ &
+   # or use nix
+   nix run '.#watch' &
+   ```
+
+3. Edit source code and watch the compiled pdf.
+
+   ```sh
+   cd ..
+   "$EDITOR" lib.typ
+   ```
+
+4. If it is OK, you can commit it.
+
+   ```sh
+   git add -A
+   git commit -m'Fix a bug'
+   git push
+   # or release a new version
+   git commit -mmodern-ustc-proposal:X.Y.Z
+   git push --tags
+   git push
+   ```
 
 ## Related Projects
 
