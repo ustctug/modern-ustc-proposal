@@ -92,8 +92,11 @@
   cd ..
   mv X.Y.Z X.Y.Z+1
   cd
-  git clone --depth=1 https://github.com/typst/packages
+  git clone --depth=1 --no-checkout --filter=tree:0 https://github.com/typst/packages
   cd packages
+  git sparse-checkout init
+  git sparse-checkout set packages/preview/modern-ustc-proposal
+  git checkout main
   cp -r ~/.local/share/typst/packages/preview/modern-ustc-proposal/X.Y.Z+1 packages/preview/modern-ustc-proposal
   rm -rf packages/preview/modern-ustc-proposal/X.Y.Z+1/.git
   git add -A
