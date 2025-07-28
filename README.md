@@ -29,6 +29,19 @@
 
 ![screenshot](template/images/thumbnail.png)
 
+We name official word template ustc-proposal.
+
+We respect semantic version. For version `X.Y.Z`:
+
+- When a bug is fixed, `Z = Z + 1`.
+- when its corresponding ustc-proposal is updated, `Y = Y + 1`. We will attach
+  it to
+  [github release](https://github.com/ustctug/modern-ustc-proposal/releases).
+  For example:
+  - `Y = 0` correspond to ustc-proposal `2024.06`
+  - `Y = 1` correspond to ustc-proposal `2025.03`
+- when it is rewritten in large scale, `X = X + 1`.
+
 ## Dependencies
 
 - [typst](https://github.com/typst/typst) `>= 0.13.0`
