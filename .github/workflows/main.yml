@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-tags: true
       - uses: typst-community/setup-typst@v3
       - uses: actions/checkout@v4
         with:
@@ -38,7 +40,8 @@ jobs:
           sudo apt-get -y install fonts-font-awesome
           mkdir -p ~/.local/share/typst/packages/preview/ustc-proposal
           mv fonts ~/.local/share
-          ln -s "$PWD" ~/.local/share/typst/packages/preview/ustc-proposal/0.0.1
+          ln -s "$PWD" ~/.local/share/typst/packages/preview/ustc-proposal/\
+          "$(git describe --tags --abbrev=0)"
           typst compile template/main.typ
       - uses: actions/upload-artifact@v4
         with:
