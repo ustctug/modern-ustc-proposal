@@ -1,4 +1,4 @@
-#import "@preview/modern-ustc-proposal:0.0.2": display-bibliography, project
+#import "@preview/modern-ustc-proposal:0.1.0": display-bibliography, project
 #import "@preview/diagraph:0.3.3": render
 
 #let publication-bibliography = "references/my.yml"
