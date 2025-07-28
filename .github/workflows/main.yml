@@ -42,11 +42,11 @@ jobs:
             print(__import__('tomllib').load(f)['package']['version'])")"
           ln -s "$PWD" \
             ~/.local/share/typst/packages/preview/modern-ustc-proposal/"$v"
-          typst compile template/main.typ
+          typst compile template/*.typ
       - uses: actions/upload-artifact@v4
         with:
-          path: ./*.pdf
+          path: template/*.pdf
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
-          files: ./*.pdf
+          files: template/*.pdf
