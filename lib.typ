@@ -158,6 +158,9 @@
 //- research-project (string): your tutor's research project name
 //- secret-level (0 | 1 | 2 | 3): no secret | confidential | secret | top secret
 //- achievement-type (integer): see section 1
+//- judge-teachers (()[]): judge teachers' names, positions, work units, signatures
+//- judge-opinion (string): judge teachers' opinion
+//- judge (0 | 1 | 2): excellent | good | average
 //- body (content): the content of the proposal
 #let project(
   titles: ("基于 typst 的", "USTC 开题报告模板的开发研究"),
@@ -179,6 +182,9 @@
   research-project: "工程博士必须填写研究所依托的重大工程项目，并标明项目编号。",
   secret-level: 0,
   achievement-type: 0,
+  judge-teachers: (),
+  judge-opinion: "通过",
+  judge: 2,
   body,
 ) = {
   assert(keywords.len() > 2 and keywords.len() < 6 and english-keywords.len() > 2 and english-keywords.len() < 6, message: "关键词数量三至五个")
@@ -203,6 +209,9 @@
   }
   if teachers-signatures.len() < 2 {
     teachers-signatures.push(true)
+  }
+  if judge-teachers.len() < 1 {
+    judge-teachers.push(("评委老师", "教授", "中国科学技术大学", "签名"))
   }
   if teachers-signatures.at(0) == true {
     teachers-signatures.at(0) = [
@@ -674,6 +683,7 @@
             text(font: "SimHei")[职称],
             text(font: "SimHei")[工作单位],
             text(font: "SimHei")[签名],
+            ..judge-teachers.flatten(),
           )
         },
         table(
@@ -699,22 +709,23 @@
           #set text(font: "SimSun")
           #align(left + top)[
             评审小组意见：（是否通过开题论证，是否需要修改等）
-          ]
+
+            #judge-opinion],
         ],
         table(
           columns: (25%, 25%, 25%, 25%),
           rows: 1fr,
-          table.cell(colspan: 3)[#text(font: "SimHei")[#if-square(false) 通过]],
+          table.cell(colspan: 3)[#text(font: "SimHei")[#if-square(true) 通过]],
           table.cell(rowspan: 2)[#text(font: "SimHei")[#if-square(false) 不通过]],
-          [#if-square(false) 优秀],
-          [#if-square(false) 良好],
-          [#if-square(false) 一般],
+          [#if-square(judge == 0) 优秀],
+          [#if-square(judge == 1) 良好],
+          [#if-square(judge == 2) 一般],
         ),
         box(height: 100%, width: 100%, inset: 5pt)[
           #align(right + bottom)[
-            评审小组组长签字：　　　　// keep spaces
+            评审小组组长签字：#box(judge-teachers.at(0).at(3))
 
-            年　月　日
+            #date.display("[year]年[month]月[day]日")
           ]
         ]
       )
